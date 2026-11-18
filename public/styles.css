@@ -139,8 +139,16 @@ img { display: block; max-width: 100%; }
 .ruled-label { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 21px auto 22px; }
 .ruled-label::before, .ruled-label::after, .name-amp::before, .name-amp::after { content: ''; width: min(18%,74px); height: 1px; background: linear-gradient(to right,transparent,#c798aa); }
 .ruled-label::after, .name-amp::after { transform: rotate(180deg); }
-.photo-arch { width: min(76%,306px); aspect-ratio: .92; margin: 0 auto 42px; padding: 7px; border: 1px solid #dcaabd; border-radius: 52%; background: #fff7fa; box-shadow: 0 0 0 4px #f5e1e9,0 10px 28px #a9557228; }
-.photo-arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 39%; border-radius: inherit; }
+.photo-arch {
+  width: clamp(235px, 54vw, 315px); max-width: calc(100% - 12px); height: clamp(255px, 58vw, 340px);
+  margin: 0 auto 42px; padding: 10px;
+  border: 2px solid #e4b4be; border-radius: 50% 50% 46% 46% / 55% 55% 45% 45%;
+  background: linear-gradient(#fff, #fceef1); box-shadow: 0 18px 45px #c86d7e38, 0 0 0 6px #f4dce08c;
+}
+.photo-arch img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 39%;
+  border: 1.5px dashed #c86d7e; border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+}
 .couple-names { display: grid; justify-items: center; margin: 15px 0; font: 400 clamp(61px,6vw,83px)/1.23 var(--script); color: var(--ink); }
 .name-amp { width: 72%; display: flex; justify-content: center; align-items: center; gap: 14px; font: italic 25px/1.2 var(--serif); color: #af7689; }
 .hero-invitation { margin: 23px auto 17px; line-height: 1.45; }
@@ -322,7 +330,7 @@ html[dir=rtl] .wish-message, html[dir=rtl] .wish-author { text-align: right; }
   .hero-card { padding: 35px 15px 27px; border-radius: 42% 42% 19px 19px / 132px 132px 19px 19px; }
   .hero-card>.bouquet:first-child { width: 84px; }
   .ruled-label { margin: 12px auto 21px; font-size: 9px; }
-  .photo-arch { width: min(75%,255px); margin-bottom: 27px; }
+  .photo-arch { margin-bottom: 27px; }
   .site-header { top: 12px; right: 10px; padding: 3px 6px; gap: 4px; }
   .music-button { right: max(12px,env(safe-area-inset-right)); bottom: max(12px,env(safe-area-inset-bottom)); padding: 8px 14px; }
   .details-pair { grid-template-columns: minmax(0,1.35fr) 18px minmax(0,1fr); gap: 8px; max-width: 430px; }
