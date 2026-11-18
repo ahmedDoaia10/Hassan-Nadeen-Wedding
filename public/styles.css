@@ -167,6 +167,7 @@ html[dir=ltr] :is(.wish-message, .wish-author) { text-align: left; }
 html[dir=rtl] :is(.wish-message, .wish-author) { text-align: right; }
 .lightbox { direction: ltr; }
 @media (max-width: 700px) {
+  .hero-visual { order: -1; }
   .details-pair { grid-template-columns: minmax(0,1.35fr) 18px minmax(0,1fr); gap: 8px; max-width: 430px; }
   .detail-date { font-size: clamp(17px,4.9vw,23px); }
   .detail-time { font-size: clamp(26px,7.6vw,34px); }
