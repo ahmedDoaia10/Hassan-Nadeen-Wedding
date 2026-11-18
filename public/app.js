@@ -45,6 +45,7 @@ try {
 let opened = false;
 let currentTrackLanguage = null;
 let musicWanted = false;
+let coverMusicChoice = false;
 let musicRequest = 0;
 let photoIndex = 0;
 let lastPhotoButton;
@@ -81,6 +82,15 @@ function toast(message) {
 }
 function musicState() {
   const playing=!audio.paused;
+  if (!opened) {
+    const label = playing ? 'Pause Music' : 'Play Music';
+    musicButton.lang = 'en';
+    musicButton.dir = 'ltr';
+    musicButton.setAttribute('aria-pressed', String(playing));
+    musicButton.setAttribute('aria-label', label);
+    $('[data-i18n]', musicButton).textContent = label;
+    return;
+  }
   musicButton.lang=language;
   musicButton.dir=language==='ar'?'rtl':'ltr';
   musicButton.setAttribute('aria-pressed',String(playing));
@@ -117,7 +127,11 @@ function pauseMusic() {
   audio.pause();
   musicState();
 }
-musicButton.addEventListener('click',()=>audio.paused?playMusic():pauseMusic());
+musicButton.addEventListener('click', () => {
+  if (!opened) coverMusicChoice = true;
+  if (audio.paused) playMusic();
+  else pauseMusic();
+});
 audio.addEventListener('play',musicState);
 audio.addEventListener('pause',musicState);
 audio.addEventListener('error',musicState);
@@ -125,16 +139,44 @@ $('#open-invitation').addEventListener('click',()=>{
   if(opened) return;
   opened=true;
   $('#open-invitation').disabled=true;
-  playMusic(); // Called in the original tap so mobile browsers allow audio.
+  if (!coverMusicChoice) playMusic();
   intro.classList.add('opening');
   setTimeout(()=>{
     main.inert=false;
+    startPetals();
+    musicState();
     intro.classList.add('leaving');
     document.body.classList.remove('gate-closed');
     window.scrollTo({top:0,behavior:'instant'});
     setTimeout(()=>{intro.hidden=true;musicButton.hidden=false;$('.brand').focus({preventScroll:true});},reduceMotion?20:500);
   },reduceMotion?50:1450);
 });
+
+document.querySelector('.intro-caption').addEventListener('click', () => {
+  document.querySelector('#open-invitation').click();
+});
+
+function startPetals() {
+  const field = document.querySelector('.petal-field');
+  if (field.childElementCount || reduceMotion) return;
+  const petals = document.createDocumentFragment();
+  for (let index = 0; index < 14; index++) {
+    const petal = document.createElement('span');
+    const duration = 10 + (index % 5) * 2.5;
+    petal.className = index % 4 === 3 ? 'petal leaf' : 'petal';
+    const style = petal.style;
+    style.setProperty('--left', ((index * 37 + 4) % 100) + '%');
+    style.setProperty('--delay', -(duration * ((index * 29 + 7) % 100) / 100) + 's');
+    style.setProperty('--duration', duration + 's');
+    style.setProperty('--size', (10 + (index % 3) * 2) + 'px');
+    style.setProperty('--angle', ((index * 47) % 360) + 'deg');
+    style.setProperty('--sway', (2.8 + (index % 4) * .35) + 's');
+    style.setProperty('--drift', ((index % 2 ? -1 : 1) * (20 + index * 2)) + 'px');
+    petals.append(petal);
+  }
+  field.append(petals);
+  field.hidden = false;
+}
 
 function invitationUrl() {
   const url=new URL(location.protocol==='http:'||location.protocol==='https:'?location.href:PUBLISHED_URL);
