@@ -14,12 +14,12 @@
   max-width: calc(100% - 32px);
   gap: 8px;
   padding: 5px 12px;
-  --nav-rim: #967336;
-  --nav-surface: #f7efdf;
+  --nav-rim: var(--gold-light);
+  --nav-surface: #fffcf5;
   border: 1px solid var(--nav-rim);
   border-radius: 999px;
   background: var(--nav-surface);
-  box-shadow: inset 0 0 0 1px var(--gold), 0 5px 18px #6e532124;
+  box-shadow: 0 5px 18px #6e53211c;
   transition: transform .28s ease, opacity .22s, visibility .22s;
 }
 .site-header.nav-hidden { transform: translateY(calc(-100% - 35px - env(safe-area-inset-top))); opacity: 0; visibility: hidden; pointer-events: none; }
