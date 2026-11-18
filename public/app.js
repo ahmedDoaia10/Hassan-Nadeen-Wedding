@@ -5,8 +5,8 @@ const MAP_LINK = 'https://maps.app.goo.gl/yQRxbXB1je18tpCD7?g_st=iw';
 const PUBLISHED_URL = "https://ahmeddoaia10.github.io/Hassan-Nadeen-Wedding/";
 const LANGUAGE_PREFERENCE = 'hassan-nadine-language';
 const MUSIC_TRACKS = {
-  ar:'./assets/alf-mashallah.mp3',
-  en:'./assets/our-song.mp3'
+  ar:'./assets/alf-mashallah',
+  en:'./assets/our-song'
 };
 const translations = {
   ar: {
@@ -56,6 +56,8 @@ const intro = $('#intro');
 const main = $('#invitation');
 const audio = $('#wedding-music');
 const musicButton = $('#music-toggle');
+const musicLabel = $('.music-label', musicButton);
+const musicFormat = audio.canPlayType('audio/mp4; codecs="mp4a.40.2"') ? '.m4a' : '.mp3';
 const lightbox = $('#lightbox');
 const photos = [
   {src:'./assets/photos/our-moment.webp',alt:{ar:'حسن ونادين يمسكان بأيدي بعضهما أمام الورود',en:'Hassan and Nadine holding hands beneath white flowers'}},
@@ -82,60 +84,52 @@ function toast(message) {
   toastTimeout=setTimeout(()=>$('#toast').classList.remove('show'),3600);
 }
 function musicState() {
-  const playing=!audio.paused;
-  if (!opened) {
-    const label = playing ? 'Pause Music' : 'Play Music';
-    musicButton.lang = 'en';
-    musicButton.dir = 'ltr';
-    musicButton.setAttribute('aria-pressed', String(playing));
-    musicButton.setAttribute('aria-label', label);
-    $('[data-i18n]', musicButton).textContent = label;
-    return;
-  }
-  musicButton.lang=language;
-  musicButton.dir=language==='ar'?'rtl':'ltr';
-  musicButton.setAttribute('aria-pressed',String(playing));
-  musicButton.setAttribute('aria-label',t(playing?'pauseMusic':'playMusic'));
-  $('[data-i18n]',musicButton).textContent=t(playing?'pauseMusic':'playMusic');
+  const active = !audio.paused && !audio.error;
+  const buttonLanguage = opened ? language : 'en';
+  const label = translations[buttonLanguage][active ? 'pauseMusic' : 'playMusic'];
+  musicButton.lang = buttonLanguage;
+  musicButton.dir = buttonLanguage === 'ar' ? 'rtl' : 'ltr';
+  musicButton.setAttribute('aria-pressed', String(active));
+  musicButton.setAttribute('aria-label', label);
+  musicButton.classList.toggle('is-playing', active && audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA);
+  musicLabel.textContent = label;
 }
 function selectMusicTrack() {
-  if(currentTrackLanguage===language)return;
+  if (currentTrackLanguage === language && !audio.error) return;
   ++musicRequest;
-  audio.pause();
-  currentTrackLanguage=language;
-  audio.src=MUSIC_TRACKS[language];
-  audio.dataset.language=language;
+  currentTrackLanguage = language;
+  audio.src = MUSIC_TRACKS[language] + musicFormat;
+  audio.dataset.language = language;
   audio.load();
 }
 async function playMusic() {
-  musicWanted=true;
+  musicWanted = true;
   selectMusicTrack();
-  const request=++musicRequest;
-  audio.volume=.45;
-  try {await audio.play();}
-  catch(error) {
-    // A newer language choice or a pause may intentionally cancel an old play request.
-    if(request!==musicRequest||error.name==='AbortError')return;
-    musicWanted=false;
-    toast(t('audioFailed'));
+  const request = ++musicRequest;
+  audio.volume = .45;
+  try {
+    await audio.play();
+  } catch (error) {
+    if (request !== musicRequest) return;
+    musicWanted = false;
+    if (error.name !== 'AbortError') toast(t('audioFailed'));
   }
-  if(request!==musicRequest)return;
-  musicState();
+  if (request === musicRequest) musicState();
 }
 function pauseMusic() {
-  musicWanted=false;
+  musicWanted = false;
   ++musicRequest;
   audio.pause();
   musicState();
 }
 musicButton.addEventListener('click', () => {
   if (!opened) coverMusicChoice = true;
-  if (audio.paused) playMusic();
+  if (audio.paused || audio.error) playMusic();
   else pauseMusic();
 });
-audio.addEventListener('play',musicState);
-audio.addEventListener('pause',musicState);
-audio.addEventListener('error',musicState);
+for (const event of ['play', 'playing', 'waiting', 'pause', 'emptied', 'error']) {
+  audio.addEventListener(event, musicState);
+}
 $('#open-invitation').addEventListener('click',()=>{
   if(opened) return;
   opened=true;

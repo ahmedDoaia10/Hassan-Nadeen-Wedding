@@ -24,10 +24,10 @@
   <meta name="twitter:image" content="https://ahmeddoaia10.github.io/Hassan-Nadeen-Wedding/assets/photos/hassan-nadine-share.jpg">
   <link rel="icon" href="./assets/decor/monogram.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/fonts/fonts.css">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=music2">
   <link rel="preload" href="./assets/decor/botanical.svg" as="image">
   <link rel="preload" href="./assets/photos/forever.webp" as="image">
-  <script defer src="./app.js"></script>
+  <script defer src="./app.js?v=music2"></script>
   <script defer src="./guestbook.js"></script>
 </head>
 <body>
@@ -60,10 +60,12 @@
     </div>
   </section>
 
-  <button class="music-button" id="music-toggle" type="button" lang="ar" dir="rtl" aria-label="تشغيل الموسيقى" aria-pressed="false">
-    <svg class="icon"><use href="#i-music"/></svg><span data-i18n="playMusic">تشغيل الموسيقى</span><span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <button class="music-button" id="music-toggle" type="button" lang="en" dir="ltr" aria-label="Play Music" aria-pressed="false">
+    <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#i-music"/><path class="music-slash" d="m2 2 20 20"/></svg>
+    <span class="music-label">Play Music</span>
+    <span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
   </button>
-  <audio id="wedding-music" preload="none" loop></audio>
+  <audio id="wedding-music" preload="auto" loop></audio>
 
   <div class="petal-field" aria-hidden="true" hidden></div>
   <main id="invitation">
@@ -157,11 +159,11 @@
 
     <section class="gallery-section section-pad" id="gallery"><div class="gallery-heading section-heading reveal"><div><span class="eyebrow" lang="en">A FEW OF OUR FAVORITE MOMENTS</span><h2 data-i18n="galleryTitle">من حكايتنا</h2></div><p data-i18n="gallerySubtitle">صور صغيرة شايلة فرحة كبيرة.<br>والأجمل لسه جاي… معاكم.</p></div>
       <div class="photo-gallery">
-        <figure class="gallery-item gallery-main reveal"><button class="photo-button" type="button" data-photo="0" aria-label="تكبير الصورة الأولى"><span class="photo-window"><img src="./assets/photos/our-moment.webp" alt="حسن ونادين يمسكان بأيدي بعضهما أمام الورود" width="854" height="1280" loading="lazy"></span><span class="photo-view" aria-hidden="true">↗</span></button><figcaption><span>01 /</span><span data-i18n="photoOne">وابتدت حكايتنا</span></figcaption></figure>
-        <figure class="gallery-item gallery-top reveal"><button class="photo-button" type="button" data-photo="1" aria-label="تكبير الصورة الثانية"><span class="photo-window screenshot-photo"><img src="./assets/photos/together.webp" alt="حسن ونادين يبتسمان لبعضهما" width="592" height="1280" loading="lazy"></span><span class="photo-view" aria-hidden="true">↗</span></button><figcaption><span>02 /</span><span data-i18n="photoTwo">في عيونك… لقيت بيتي</span></figcaption></figure>
+        <figure class="gallery-item gallery-main reveal"><button class="photo-button" type="button" data-photo="0" aria-label="تكبير الصورة الأولى"><span class="photo-window"><img src="./assets/photos/our-moment.webp" alt="حسن ونادين يمسكان بأيدي بعضهما أمام الورود" width="854" height="1280" loading="lazy"></span></button><figcaption><span>01 /</span><span data-i18n="photoOne">وابتدت حكايتنا</span></figcaption></figure>
+        <figure class="gallery-item gallery-top reveal"><button class="photo-button" type="button" data-photo="1" aria-label="تكبير الصورة الثانية"><span class="photo-window screenshot-photo"><img src="./assets/photos/together.webp" alt="حسن ونادين يبتسمان لبعضهما" width="592" height="1280" loading="lazy"></span></button><figcaption><span>02 /</span><span data-i18n="photoTwo">في عيونك… لقيت بيتي</span></figcaption></figure>
         
-        <figure class="gallery-item gallery-bottom reveal"><button class="photo-button" type="button" data-photo="2" aria-label="تكبير الصورة الثالثة"><span class="photo-window"><img src="./assets/photos/a-little-joy.webp" alt="ابتسامة حسن ونادين في لحظة سعيدة" width="854" height="1280" loading="lazy"></span><span class="photo-view" aria-hidden="true">↗</span></button><figcaption><span>03 /</span><span data-i18n="photoThree">أحلى ضحكة سوا</span></figcaption></figure>
-        <figure class="gallery-item gallery-last reveal"><button class="photo-button" type="button" data-photo="3" aria-label="تكبير الصورة الرابعة"><span class="photo-window"><img src="./assets/photos/forever.webp" alt="حسن ونادين معًا في إضاءة دافئة" width="854" height="1280" loading="lazy"></span><span class="photo-view" aria-hidden="true">↗</span></button><figcaption><span>04 /</span><span data-i18n="photoFour">والمشوار كله سوا</span></figcaption></figure>
+        <figure class="gallery-item gallery-bottom reveal"><button class="photo-button" type="button" data-photo="2" aria-label="تكبير الصورة الثالثة"><span class="photo-window"><img src="./assets/photos/a-little-joy.webp" alt="ابتسامة حسن ونادين في لحظة سعيدة" width="854" height="1280" loading="lazy"></span></button><figcaption><span>03 /</span><span data-i18n="photoThree">أحلى ضحكة سوا</span></figcaption></figure>
+        <figure class="gallery-item gallery-last reveal"><button class="photo-button" type="button" data-photo="3" aria-label="تكبير الصورة الرابعة"><span class="photo-window"><img src="./assets/photos/forever.webp" alt="حسن ونادين معًا في إضاءة دافئة" width="854" height="1280" loading="lazy"></span></button><figcaption><span>04 /</span><span data-i18n="photoFour">والمشوار كله سوا</span></figcaption></figure>
       </div>
     </section>
 
