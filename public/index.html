@@ -98,13 +98,43 @@
         <h1 class="couple-names" lang="en" dir="ltr"><span>Hassan</span><i class="name-amp">&amp;</i><span>Nadine</span></h1>
         <span class="bouquet small" aria-hidden="true"></span>
         <p class="hero-invitation" data-i18n="heroInvitation">ندعوكم لتشاركونا أجمل يوم في عمرنا.<br>وجودكم هو أحلى تفاصيل فرحتنا.</p>
-        <a class="date-pill" href="#date"><span data-i18n="venueDate">السبت، ٢٨ نوفمبر ٢٠٢٦</span></a>
+        <a class="date-pill" href="#date">
+          <time datetime="2026-11-28" data-i18n="weddingDate">٢٨ نوفمبر ٢٠٢٦</time>
+          <span class="date-pill-venue" data-i18n="venueName">دار المشاة</span>
+        </a>
       </div>
     </section>
 
-    <section class="date-section section-pad" id="date">
-      <div class="section-heading reveal"><span class="eyebrow" lang="en">THE DAY WE SAY “I DO”</span><h2 data-i18n="dateTitle">يوم من العمر</h2><p data-i18n="dateSubtitle">احفظوا التاريخ… واستعدوا لليلة مليانة حب</p></div>
-      <div class="date-ticket reveal"><div class="date-ticket-side"><span class="eyebrow" data-i18n="saturday">السبت</span><span class="ticket-script" lang="en">Save the date</span></div><div class="date-ticket-number" dir="ltr">28</div><div class="date-ticket-side"><span class="ticket-month" data-i18n="november">نوفمبر</span><span class="ticket-year" dir="ltr">2026</span></div></div>
+    <section class="date-section section-pad" id="date" aria-labelledby="details-title">
+      <div class="wedding-details reveal">
+        <span class="bouquet" aria-hidden="true"></span>
+        <h2 class="details-label" id="details-title" data-i18n="detailsHeading">تفاصيل الزفاف</h2>
+        <span class="flower-rule" aria-hidden="true"><span class="bouquet small"></span></span>
+        <div class="details-pair">
+          <div class="detail-item">
+            <span class="detail-icon" aria-hidden="true"><svg class="icon detail-heart"><use href="#i-heart"/></svg></span>
+            <h3 class="details-label" data-i18n="dateLabel">التاريخ</h3>
+            <span class="detail-day" data-i18n="saturday">السبت</span>
+            <time class="detail-date" datetime="2026-11-28" data-i18n="weddingDate">٢٨ نوفمبر ٢٠٢٦</time>
+          </div>
+          <svg class="between-flower" viewBox="0 0 32 32" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="1.35">
+              <ellipse cx="16" cy="9.5" rx="4.4" ry="6.1"/>
+              <ellipse cx="16" cy="9.5" rx="4.4" ry="6.1" transform="rotate(72 16 16)"/>
+              <ellipse cx="16" cy="9.5" rx="4.4" ry="6.1" transform="rotate(144 16 16)"/>
+              <ellipse cx="16" cy="9.5" rx="4.4" ry="6.1" transform="rotate(216 16 16)"/>
+              <ellipse cx="16" cy="9.5" rx="4.4" ry="6.1" transform="rotate(288 16 16)"/>
+              <circle cx="16" cy="16" r="2.8" fill="#fce4eb"/>
+            </g>
+          </svg>
+          <div class="detail-item">
+            <span class="detail-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></span>
+            <h3 class="details-label" data-i18n="timeLabel">الساعة</h3>
+            <time class="detail-time" datetime="2026-11-28T19:00:00+02:00" data-i18n="weddingTime">٧:٠٠ مساءً</time>
+          </div>
+        </div>
+        <span class="flower-rule" aria-hidden="true"><span class="bouquet small"></span></span>
+      </div>
       <a class="button button-outline calendar-button reveal" href="./hassan-nadine.ics" download><svg class="icon"><use href="#i-calendar"/></svg><span data-i18n="addCalendar">ضيف اليوم للتقويم</span></a>
       <div class="countdown-wrap reveal"><span class="bouquet" aria-hidden="true"></span><h3 class="countdown-label" data-i18n="countdownTitle">باقي على يومنا الحلو</h3><div class="countdown" role="timer" aria-label="العد التنازلي ليوم الزفاف" dir="ltr"><div><span id="count-days">00</span><small data-i18n="days">يوم</small></div><i>:</i><div><span id="count-hours">00</span><small data-i18n="hours">ساعة</small></div><i>:</i><div><span id="count-minutes">00</span><small data-i18n="minutes">دقيقة</small></div><i>:</i><div><span id="count-seconds">00</span><small data-i18n="seconds">ثانية</small></div></div><p class="countdown-end" id="countdown-end" hidden data-i18n="celebrationDay">وصل يومنا الحلو… فرحتنا تكمل بيكم 🤍</p></div>
     </section>

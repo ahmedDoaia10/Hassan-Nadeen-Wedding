@@ -1,7 +1,6 @@
 'use strict';
 
-// Event day begins at midnight in Cairo (UTC+02 in November). No start time was supplied.
-const EVENT_DAY = '2026-11-28T00:00:00+02:00';
+const WEDDING_START = '2026-11-28T19:00:00+02:00';
 const MAP_LINK = 'https://maps.app.goo.gl/yQRxbXB1je18tpCD7?g_st=iw';
 const PUBLISHED_URL = "https://ahmeddoaia10.github.io/Hassan-Nadeen-Wedding/";
 const LANGUAGE_PREFERENCE = 'hassan-nadine-language';
@@ -15,11 +14,12 @@ const translations = {
     tapHint:'اضغط على الظرف لتبدأ الحكاية',playMusic:'تشغيل الموسيقى',pauseMusic:'إيقاف الموسيقى',
     navWishes:'التهاني',
     navDate:'يومنا',navStory:'دعوتنا',navGallery:'لحظاتنا',navVenue:'المكان',navReply:'ردك الحلو',navShare:'مشاركة الدعوة',heroPrelude:'وبكل الحب… نبدأ حكايتنا',namesAr:'حسن <span>و</span> نادين',heroInvitation:'ندعوكم لتشاركونا أجمل يوم في عمرنا.<br>وجودكم هو أحلى تفاصيل فرحتنا.',discover:'كل تفاصيل يومنا',
-    dateTitle:'يوم من العمر',dateSubtitle:'احفظوا التاريخ… واستعدوا لليلة مليانة حب',saturday:'السبت',november:'نوفمبر',addCalendar:'ضيف اليوم للتقويم',countdownTitle:'باقي على يومنا الحلو',days:'يوم',hours:'ساعة',minutes:'دقيقة',seconds:'ثانية',celebrationDay:'وصل يومنا الحلو… فرحتنا تكمل بيكم 🤍',
+    detailsHeading:'تفاصيل الزفاف',dateLabel:'التاريخ',timeLabel:'الساعة',saturday:'السبت',weddingDate:'٢٨ نوفمبر ٢٠٢٦',weddingTime:'٧:٠٠ مساءً',
+    addCalendar:'ضيف اليوم للتقويم',countdownTitle:'باقي على يومنا الحلو',days:'يوم',hours:'ساعة',minutes:'دقيقة',seconds:'ثانية',celebrationDay:'وصل يومنا الحلو… فرحتنا تكمل بيكم 🤍',
     familyNote:'بقلوب مليانة فرحة،<br>يتشرف حسن ونادين وعائلتاهما بدعوتكم<br>لمشاركتهم بداية عمر جديد معًا.',galleryTitle:'من حكايتنا',gallerySubtitle:'صور صغيرة شايلة فرحة كبيرة.<br>والأجمل لسه جاي… معاكم.',photoOne:'وابتدت حكايتنا',photoTwo:'في عيونك… لقيت بيتي',photoThree:'أحلى ضحكة سوا',photoFour:'والمشوار كله سوا',galleryQuote:'ومعاك… يحلو العمر',
     venueTitle:'هنا نكمّل فرحتنا',venueName:'دار المشاة',venueCardSubtitle:'دار المشاة… هنا نحتفل بأجمل بداية',venueAddress:'بجوار كوبري الفنجري، مصر الجديدة',venueDate:'السبت، ٢٨ نوفمبر ٢٠٢٦',directions:'View Location',venueFootnote:'ضغطة واحدة وتوصلوا لنا',openGoogleMaps:'فتح في Google Maps',
     replyTitle:'أكد حضورك وسيب كلمة حلوة',replySubtitle:'فرحتنا تكمل بوجودكم.<br>سجّل ردك وشاركنا تهنئة من القلب.',replyNote:'اسمك وتهنئتك هيظهروا في قسم التهاني للجميع. اختيار الحضور وعدد الأشخاص مش هيظهروا للعامة.',guestName:'اسمك الجميل',attending:'هتشاركنا فرحتنا؟',attendYes:'أكيد، هكون معاكم 🤍',attendNo:'هكون معاكم بقلبي',guestCount:'عدد الأشخاص',yourMessage:'كلمة للعروسين <span class="optional">(اختياري)</span>',namePlaceholder:'الاسم',messagePlaceholder:'ربنا يسعدكم ويتمم فرحتكم على خير…',
-    shareTitle:'الفرحة حلوة بلمّتنا',shareSubtitle:'شارك الدعوة مع اللي بتحبهم',whatsapp:'واتساب',copyLink:'نسخ اللينك',share:'مشاركة',footerText:'مستنيينكم… عشان فرحتنا تكمل 🤍',copied:'تم النسخ 🤍',copyFailed:'النسخ غير متاح هنا. يمكنك نسخ اللينك من شريط العنوان.',audioFailed:'اضغط على زر الموسيقى مرة تانية لتشغيل الأغنية.',shareText:'بكل الحب، ندعوكم لمشاركتنا فرحة زفاف حسن ونادين 🤍\nالسبت، ٢٨ نوفمبر ٢٠٢٦\nدار المشاة، القاهرة',
+    shareTitle:'الفرحة حلوة بلمّتنا',shareSubtitle:'شارك الدعوة مع اللي بتحبهم',whatsapp:'واتساب',copyLink:'نسخ اللينك',share:'مشاركة',footerText:'مستنيينكم… عشان فرحتنا تكمل 🤍',copied:'تم النسخ 🤍',copyFailed:'النسخ غير متاح هنا. يمكنك نسخ اللينك من شريط العنوان.',audioFailed:'اضغط على زر الموسيقى مرة تانية لتشغيل الأغنية.',shareText:'بكل الحب، ندعوكم لمشاركتنا فرحة زفاف حسن ونادين 🤍\nالسبت، ٢٨ نوفمبر ٢٠٢٦، الساعة ٧ مساءً\nدار المشاة، القاهرة',
     openLabel:'افتح دعوة حسن ونادين',menuOpen:'فتح القائمة',menuClose:'إغلاق القائمة',closePhoto:'إغلاق الصور',previousPhoto:'الصورة السابقة',nextPhoto:'الصورة التالية',countdownLabel:'العد التنازلي ليوم الزفاف',mapTitle:'موقع دار المشاة في القاهرة على Google Maps',photoLabel:'تكبير الصورة',topLabel:'العودة إلى أول الدعوة',title:'حسن ونادين | ٢٨ نوفمبر ٢٠٢٦'
   },
   en: {
@@ -27,11 +27,12 @@ const translations = {
     tapHint:'Tap the envelope to begin our story',playMusic:'Play Music',pauseMusic:'Pause Music',
     navWishes:'Warm wishes',
     navDate:'Our day',navStory:'Our invitation',navGallery:'Our moments',navVenue:'The venue',navReply:'Your reply',navShare:'Share the invitation',heroPrelude:'With love, our forever begins',namesAr:'Together with our families',heroInvitation:'We invite you to celebrate our wedding.<br>Your presence will make our day complete.',discover:'Discover our day',
-    dateTitle:'A day to remember',dateSubtitle:'Keep this date close to your heart.',saturday:'SATURDAY',november:'November',addCalendar:'Add to your calendar',countdownTitle:'Every second brings us closer',days:'Days',hours:'Hours',minutes:'Minutes',seconds:'Seconds',celebrationDay:'Our wedding day is here. Celebrate with us! 🤍',
+    detailsHeading:'Wedding Details',dateLabel:'Date',timeLabel:'Time',saturday:'Saturday',weddingDate:'28 November 2026',weddingTime:'7:00 PM',
+    addCalendar:'Add to your calendar',countdownTitle:'Every second brings us closer',days:'Days',hours:'Hours',minutes:'Minutes',seconds:'Seconds',celebrationDay:'Our wedding day is here. Celebrate with us! 🤍',
     familyNote:'With hearts full of joy,<br>Hassan, Nadine, and their families invite you<br>to celebrate a beautiful new beginning.',galleryTitle:'A glimpse of us',gallerySubtitle:'Little moments, so much happiness.<br>And the best is yet to come… with you.',photoOne:'Where our story begins',photoTwo:'Home, in your eyes',photoThree:'Our favorite kind of joy',photoFour:'Every step, together',galleryQuote:'Life is sweeter with you.',
     venueTitle:'A place for our joy',venueName:'Infantry House',venueCardSubtitle:'A beautiful place for a beautiful beginning',venueAddress:'Beside El Fangary Bridge, Heliopolis',venueDate:'Saturday, 28 November 2026',directions:'View Location',venueFootnote:'One little tap to find your way',openGoogleMaps:'Open in Google Maps',
     replyTitle:'RSVP & Wishes',replySubtitle:'Our joy is complete with you.<br>Confirm your reply and leave a heartfelt wish.',replyNote:'Your name and wish will appear publicly below. Your attendance choice and guest count will stay private.',guestName:'Your lovely name',attending:'Will you celebrate with us?',attendYes:'Yes, I will be there 🤍',attendNo:'Celebrating with you in spirit',guestCount:'Number of guests',yourMessage:'A note for the couple <span class="optional">(optional)</span>',namePlaceholder:'Your name',messagePlaceholder:'Wishing you a lifetime of love and happiness…',
-    shareTitle:'Joy is better together',shareSubtitle:'Send our invitation to someone you love',whatsapp:'WhatsApp',copyLink:'Copy link',share:'Share',footerText:'We cannot wait to celebrate with you 🤍',copied:'Copied with love 🤍',copyFailed:'Copy is unavailable here. You can copy the link from your address bar.',audioFailed:'Tap the music button again to play our song.',shareText:'With love, you are invited to celebrate Hassan & Nadine’s wedding 🤍\nSaturday, 28 November 2026\nInfantry House, Cairo',
+    shareTitle:'Joy is better together',shareSubtitle:'Send our invitation to someone you love',whatsapp:'WhatsApp',copyLink:'Copy link',share:'Share',footerText:'We cannot wait to celebrate with you 🤍',copied:'Copied with love 🤍',copyFailed:'Copy is unavailable here. You can copy the link from your address bar.',audioFailed:'Tap the music button again to play our song.',shareText:'With love, you are invited to celebrate Hassan & Nadine’s wedding 🤍\nSaturday, 28 November 2026 at 7:00 PM\nInfantry House, Cairo',
     openLabel:'Open Hassan and Nadine’s invitation',menuOpen:'Open menu',menuClose:'Close menu',closePhoto:'Close photos',previousPhoto:'Previous photo',nextPhoto:'Next photo',countdownLabel:'Countdown to the wedding day',mapTitle:'Infantry House in Cairo on Google Maps',photoLabel:'View photo',topLabel:'Back to the top',title:'Hassan & Nadine | 28 November 2026'
   }
 };
@@ -276,7 +277,7 @@ window.addEventListener('scroll',()=>{
 window.addEventListener('resize',()=>{navLastY=window.scrollY;navDistance=0;});
 
 function updateCountdown(now=Date.now()) {
-  const remaining=Math.max(0,new Date(EVENT_DAY).getTime()-now);
+  const remaining=Math.max(0,new Date(WEDDING_START).getTime()-now);
   const seconds=Math.floor(remaining/1000);
   const parts=[Math.floor(seconds/86400),Math.floor(seconds%86400/3600),Math.floor(seconds%3600/60),seconds%60];
   ['days','hours','minutes','seconds'].forEach((unit,i)=>$('#count-'+unit).textContent=String(parts[i]).padStart(2,'0'));

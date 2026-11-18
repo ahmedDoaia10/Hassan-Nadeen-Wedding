@@ -5,13 +5,12 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:hassan-nadine-20261128@wedding-invitation
-DTSTAMP:20261030T120000Z
-DTSTART;VALUE=DATE:20261128
-DTEND;VALUE=DATE:20261129
+DTSTAMP:20261118T131745Z
+SEQUENCE:1
+DTSTART:20261128T170000Z
 SUMMARY:زفاف حسن ونادين | Hassan and Nadine
 LOCATION:دار المشاة - القاهرة | Infantry House - Cairo
-DESCRIPTION:فرحتنا تكمل بوجودكم.\nلم يُحدد وقت 
- بدء الحفل في الدعوة.\n
+DESCRIPTION:فرحتنا تكمل بوجودكم.\n
  https://maps.app.goo.gl/yQRxbXB1je18tpCD7
 URL:https://maps.app.goo.gl/yQRxbXB1je18tpCD7
 STATUS:CONFIRMED

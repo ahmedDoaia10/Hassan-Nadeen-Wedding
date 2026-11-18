@@ -128,20 +128,44 @@ img { display: block; max-width: 100%; }
 .name-amp { width: 72%; display: flex; justify-content: center; align-items: center; gap: 14px; font: italic 25px/1.2 var(--serif); color: #af7689; }
 .hero-invitation { margin: 23px auto 17px; line-height: 1.45; }
 html[lang=en] .hero-invitation { font-style: italic; }
-.date-pill { display: inline-block; padding: 8px 24px; border: 1px dashed #dfadbf; border-radius: 25px; background: #f9e7ee; color: var(--wine); font-weight: 600; }
+.date-pill {
+  display: inline-grid;
+  justify-items: center;
+  gap: 3px;
+  max-width: 100%;
+  padding: 12px 28px;
+  border: 1px solid #edb1c2;
+  border-radius: 999px;
+  background: #f8e8ec;
+}
+.date-pill time { color: #ad4966; font: 600 21px/1.45 var(--body); }
+html[lang=en] .date-pill time { letter-spacing: .045em; }
+.date-pill-venue { color: #56796b; font: 600 13px/1.5 var(--sans); }
+html[lang=ar] .date-pill-venue { font: 700 16px/1.4 var(--arabic); }
 
 .section-pad, .love-note, .venue-section { padding: clamp(64px,8vw,112px) max(18px,5vw); text-align: center; }
 .section-heading { margin: 0 auto 32px; }
 .section-heading h2, .reply-intro h2, .share-section h2 { margin: 8px auto; }
 .section-heading p, .reply-intro>p, .share-section>p, .venue-tagline { color: var(--muted); }
 .section-heading::before, .venue-section>h2::before { content: ''; display: block; width: 89px; height: 27px; margin: 0 auto 14px; background: url('./assets/decor/rose-divider.svg') center / contain no-repeat; }
-.date-ticket { display: inline-flex; align-items: center; justify-content: center; gap: 18px; margin: 8px auto 24px; }
-.date-ticket-side { min-width: 78px; display: grid; justify-items: center; gap: 4px; }
-.date-ticket-side .eyebrow { font: 500 19px var(--body); letter-spacing: .04em; }
-.ticket-script { font: 26px var(--script); color: var(--rose); }
-.date-ticket-number { border-inline: 1px solid #d7a8ba; padding: 0 22px; font: 72px/1 var(--serif); }
-.ticket-year { font: 23px var(--serif); }
-.calendar-button { display: flex !important; width: max-content; margin: 0 auto; }
+.wedding-details { max-width: 760px; margin-inline: auto; }
+.details-label { color: #ab4f6a; font: 500 12px/1.65 var(--sans); letter-spacing: .24em; text-transform: uppercase; }
+html[lang=ar] .details-label { font: 500 18px/1.6 var(--arabic); letter-spacing: normal; }
+h2.details-label { margin: 15px auto 26px; }
+.flower-rule { display: flex; align-items: center; justify-content: center; gap: clamp(12px,2.4vw,27px); }
+.flower-rule .bouquet { margin: 0; }
+.flower-rule::before, .flower-rule::after { content: ''; width: clamp(43px,8vw,79px); height: 1px; background: linear-gradient(90deg,transparent,#d796aa 55%,transparent); }
+.details-pair { display: grid; grid-template-columns: max-content auto max-content; align-items: center; justify-content: center; gap: clamp(18px,3.5vw,45px); margin: clamp(42px,7vw,80px) auto; }
+.detail-item { display: grid; justify-items: center; min-width: 0; }
+.detail-icon { width: 32px; height: 32px; border: 1px dashed #c65f7d; border-radius: 50%; display: grid; place-items: center; color: #c97388; background: #f9dde7; margin-bottom: 22px; }
+.detail-icon .icon { width: 18px; height: 18px; }
+.detail-heart { fill: currentColor; stroke-width: 1; }
+.detail-day { margin-top: 7px; color: #8c364e; font: 400 34px/1.24 var(--script); }
+html[lang=ar] .detail-day { font: 400 32px/1.4 var(--arabic); }
+.detail-date { margin-top: 12px; font: 500 clamp(23px,2.6vw,29px)/1.4 var(--body); }
+.detail-time { color: #ae4e69; margin-top: 12px; font: 500 clamp(32px,4vw,43px)/1.25 var(--body); white-space: nowrap; }
+.between-flower { width: 24px; height: 24px; color: #df97ab; }
+.calendar-button { display: flex !important; width: max-content; margin: 30px auto 0; }
 .button, .back-top { min-height: 44px; display: inline-flex; justify-content: center; align-items: center; gap: 9px; padding: 8px 20px; border: 1px solid #dfbfcb; color: var(--wine); background: #fffafa; border-radius: 99px; font-weight: 600; }
 .button:hover, .back-top:hover, .date-pill:hover { box-shadow: 0 3px 12px #9c476528; border-color: #bb7e95; }
 .countdown-wrap { margin: clamp(68px,9vw,132px) auto 0; }
@@ -204,14 +228,47 @@ input[type=radio] { accent-color: var(--rose); }
 .confirmation-mark { width: 55px; height: 60px; stroke: var(--ink); stroke-width: 4px; fill: none; }
 .rsvp-confirmation p { margin: 18px auto 0; }
 .wishes-section, .share-section { background: #f6f1f1; }
-.wishes-grid { margin: 30px auto 0; max-width: 930px; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
-.wish-card { text-align: start; padding: 21px; border-radius: 15px; }
-.wish-quote { width: 18px; height: 18px; fill: #ddaebe; }
-.wish-message { white-space: pre-wrap; overflow-wrap: anywhere; margin: 8px 0 20px; }
-.wish-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
-.wish-author { font-weight: 700; overflow-wrap: anywhere; }
-.wish-author[lang=ar], .wish-message[lang=ar] { font-family: var(--arabic); }
-.wish-heart { color: var(--rose); }
+.wishes-grid {
+  margin: 30px auto 0;
+  max-width: 860px;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 24px;
+}
+.wish-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+  min-height: 184px;
+  padding: 24px;
+  background: #fffbfc;
+  border: 1px solid #f0bdc8;
+  border-radius: 28px;
+  text-align: start;
+}
+.wish-quote { align-self: flex-start; width: 24px; height: 24px; fill: none; stroke: #dc98a9; stroke-width: 2; stroke-linejoin: round; }
+.wish-message {
+  margin: 8px 0 16px;
+  flex: 1;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  unicode-bidi: plaintext;
+  font: italic 500 19px/1.48 'Cormorant Garamond','Amiri',Georgia,serif;
+}
+.wish-footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 13px;
+  border-top: 1px solid #eedfe4;
+}
+.wish-author { min-width: 0; overflow-wrap: anywhere; font: 700 18px/1.45 'Cormorant Garamond','Amiri',Georgia,serif; }
+.wish-author[lang=ar], .wish-message[lang=ar] { font-family: 'Amiri','Cormorant Garamond',serif; }
+html[dir=ltr] .wish-message, html[dir=ltr] .wish-author { text-align: left; }
+html[dir=rtl] .wish-message, html[dir=rtl] .wish-author { text-align: right; }
+.wish-heart { flex: none; color: #c26983; font: 17px/1 var(--serif); }
 .wishes-controls { margin-top: 20px; }
 .share-section .eyebrow, .site-footer .eyebrow { display: block; margin: 17px auto 7px; }
 .share-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
@@ -254,8 +311,14 @@ input[type=radio] { accent-color: var(--rose); }
   .music-button { right: 12px; bottom: max(12px,env(safe-area-inset-bottom)); padding: 8px 13px; min-height: 42px; }
   .music-button[aria-pressed=false]::after { left: 12px; }
   .music-button[dir=rtl][aria-pressed=false]::after { right: 12px; left: auto; }
-  .date-ticket { gap: 8px; }
-  .date-ticket-number { padding-inline: 15px; }
+  .details-pair { grid-template-columns: minmax(0,1.35fr) 18px minmax(0,1fr); gap: 8px; max-width: 430px; }
+  .detail-date { font-size: clamp(17px,4.9vw,23px); }
+  .detail-time { font-size: clamp(26px,7.6vw,34px); }
+  .detail-day { font-size: 30px; }
+  .between-flower { width: 18px; height: 18px; }
+  .detail-icon { margin-bottom: 15px; }
+  .wishes-grid { gap: 18px; }
+  .wish-card { min-height: 164px; padding: 20px; }
   .countdown { gap: 5px; }
   .countdown>i::after { font-size: 11px; }
   .countdown>div { width: clamp(53px,17vw,84px); }
