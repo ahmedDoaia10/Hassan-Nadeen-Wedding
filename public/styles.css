@@ -14,10 +14,10 @@
   max-width: calc(100% - 32px);
   gap: 8px;
   padding: 5px 12px;
-  border: 1px solid #e6dbc8;
+  border: 1px solid #c2a676;
   border-radius: 999px;
-  background: #faf6eff5;
-  box-shadow: 0 5px 24px #67523a12;
+  background: #fffcf5;
+  box-shadow: 0 5px 24px #6e53211c;
   transition: transform .28s ease, opacity .22s, visibility .22s;
 }
 .site-header.nav-hidden { transform: translateY(calc(-100% - 35px - env(safe-area-inset-top))); opacity: 0; visibility: hidden; pointer-events: none; }
@@ -32,7 +32,7 @@
   border-radius: 50%;
   background: transparent;
 }
-.brand .icon { width: 16px; height: 16px; fill: #c97080; stroke: #c97080; }
+.brand .icon { width: 16px; height: 16px; fill: #967336; stroke: #967336; }
 .header-controls, .language-switch { display: flex; align-items: center; gap: 8px; }
 .language-switch { gap: 5px; }
 .language-button {
@@ -41,24 +41,24 @@
   border: 0;
   border-radius: 14px;
   background: transparent;
-  color: #96636c;
+  color: var(--brown);
   font: 500 12px/1.4 var(--sans);
   letter-spacing: .08em;
   white-space: nowrap;
 }
 .language-button[lang=ar] { font: 13px/1.4 Tahoma, Arial, sans-serif; letter-spacing: 0; }
-.language-button[aria-pressed=true] { color: #a44459; font-weight: 650; }
-.language-divider { width: 1px; height: 12px; background: #dabfc1; }
+.language-button[aria-pressed=true] { color: #967336; font-weight: 650; }
+.language-divider { width: 1px; height: 12px; background: var(--gold-light); }
 .menu-button { gap: 4px; }
 .menu-button span {
   display: block; width: 14px; height: 1.5px; border-radius: 2px;
-  background: #764855; transition: transform .2s, opacity .2s;
+  background: #967336; transition: transform .2s, opacity .2s;
 }
 .menu-button[aria-expanded=true] span:first-child { transform: translateY(5.5px) rotate(45deg); }
 .menu-button[aria-expanded=true] span:nth-child(2) { opacity: 0; }
 .menu-button[aria-expanded=true] span:last-child { transform: translateY(-5.5px) rotate(-45deg); }
 @media (hover: hover) {
-  .brand:hover, .menu-button:hover, .language-button:hover { background: #eee5d577; }
+  .brand:hover, .menu-button:hover, .language-button:hover { background: #f7efdf; }
 }
 .mobile-menu{position:absolute;top:calc(100% + 11px);right:0;width:100%;max-height:calc(100svh - 112px);overflow-y:auto;overscroll-behavior:contain;padding:13px;background:#fffaf3f7;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid #dfd3be9c;border-radius:22px;box-shadow:0 12px 32px #58463416;text-align:start}.mobile-menu a{display:block;padding:10px 20px;font-size:20px;line-height:1.8;color:#7b6c57;border-radius:12px;transition:background .2s,color .2s}.mobile-menu a:hover,.mobile-menu a:focus-visible{background:#f0e8d9;color:var(--brown)}html[lang=en] .mobile-menu a{font:23px/1.5 var(--serif);padding-block:11px}
 
