@@ -5,14 +5,16 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 UID:hassan-nadine-20261128@wedding-invitation
-DTSTAMP:20261118T131745Z
-SEQUENCE:1
+DTSTAMP:20261121T160109Z
+SEQUENCE:2
 DTSTART:20261128T170000Z
 SUMMARY:زفاف حسن ونادين | Hassan and Nadine
-LOCATION:دار المشاة - القاهرة | Infantry House - Cairo
-DESCRIPTION:فرحتنا تكمل بوجودكم.\n
- https://maps.app.goo.gl/yQRxbXB1je18tpCD7
-URL:https://maps.app.goo.gl/yQRxbXB1je18tpCD7
+LOCATION:القاعة الماسية بدار المشاة - القاهرة
+  | Diamond Hall at Infantry House - Cairo
+GEO:30.0784856;31.3013487
+DESCRIPTION:فرحتنا تكمل بوجودكم.\nhttps://maps.app.goo.gl/
+ pHdtWPJgCavt6S8t9?g_st=aw
+URL:https://maps.app.goo.gl/pHdtWPJgCavt6S8t9?g_st=aw
 STATUS:CONFIRMED
 TRANSP:TRANSPARENT
 END:VEVENT
